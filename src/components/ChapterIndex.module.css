@@ -12,8 +12,26 @@
   padding-bottom: 0.55rem;
 }
 
+/* spacers so the header columns line up with the rows */
 .headArrow {
   width: 2.1rem;
+}
+
+.headThumb {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .headThumb {
+    display: block;
+    width: 3.1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .headThumb {
+    width: 3.4rem;
+  }
 }
 
 .item {
@@ -200,21 +218,22 @@
 }
 
 @media (min-width: 900px) {
-  /* the thumbnail drops out here — the cursor-follow preview takes over */
+  /* the thumbnail stays; the cursor-follow preview enlarges it on hover */
   .row {
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto;
     padding: 1.6rem 0;
   }
 
   .headRow {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto;
     gap: 1.2rem 1.6rem;
     align-items: center;
   }
 
   .thumb {
-    display: none;
+    width: 3.4rem;
+    height: 3.4rem;
   }
 
   .preview {
@@ -225,7 +244,7 @@
 @media (min-width: 1180px) {
   .row,
   .headRow {
-    grid-template-columns: auto minmax(0, 1.5fr) minmax(0, 0.6fr) 8.6rem auto;
+    grid-template-columns: auto auto minmax(0, 1.4fr) minmax(0, 0.55fr) 8.6rem auto;
   }
 
   .tech {

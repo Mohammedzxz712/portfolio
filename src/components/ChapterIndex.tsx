@@ -61,6 +61,7 @@ export function ChapterIndex({ chapterId }: { chapterId: ChapterId }) {
         {/* Column headers — the index reads as a product table on wide screens. */}
         <div className={`mono ${styles.headRow}`} aria-hidden="true">
           <span className={styles.index}>#</span>
+          <span className={styles.headThumb} />
           <span>Project</span>
           <span className={styles.tech}>Stack</span>
           <span className={styles.store}>Platform</span>
