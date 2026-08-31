@@ -1,0 +1,103 @@
+.section {
+  padding-block: var(--section-y);
+}
+
+.chapters {
+  display: grid;
+  gap: clamp(4rem, 9vw, 7rem);
+}
+
+.chapter {
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.chapterHead {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 46rem;
+}
+
+.chapterMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--ink-muted);
+}
+
+.numeral {
+  display: grid;
+  place-items: center;
+  min-width: 2rem;
+  height: 1.6rem;
+  padding-inline: 0.45rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--signal);
+  font-size: 0.66rem;
+}
+
+.dim {
+  color: var(--ink-faint);
+}
+
+.chapterTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-3);
+  letter-spacing: -0.03em;
+}
+
+.chapterBlurb {
+  color: var(--ink-muted);
+  max-width: 54ch;
+}
+
+.chapterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-self: start;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 0.2rem;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.chapterLink svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.chapterLink:hover {
+  color: var(--signal);
+  border-color: var(--signal);
+}
+
+.chapterLink:hover svg {
+  transform: translate(2px, -2px);
+}
+
+@media (min-width: 1100px) {
+  .chapter {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+
+  .chapterHead {
+    position: sticky;
+    top: 7.5rem;
+  }
+}

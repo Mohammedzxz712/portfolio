@@ -1,0 +1,65 @@
+.toggle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.toggle:hover {
+  border-color: var(--rule-strong);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+.sun,
+.moon {
+  grid-area: 1 / 1;
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.moon {
+  fill: var(--ink);
+  stroke: none;
+}
+
+/* light theme → show the sun; dark theme → show the moon */
+.sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.6);
+}
+
+:global(:root[data-theme="dark"]) .sun {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.6);
+}
+
+:global(:root[data-theme="dark"]) .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.toggle:hover .sun,
+.toggle:hover .moon {
+  stroke: var(--signal);
+}
+
+.toggle:hover .moon {
+  fill: var(--signal);
+}

@@ -1,0 +1,40 @@
+.device {
+  position: relative;
+  flex: none;
+  padding: 6px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, #39414f, #0b1018 45%, #262e3b);
+  box-shadow: var(--shadow-md), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+:global(:root[data-theme="dark"]) .device {
+  background: linear-gradient(160deg, #4a5566, #0a0e15 45%, #333d4c);
+  box-shadow: var(--shadow-md), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  background: var(--surface);
+  aspect-ratio: 230 / 498;
+}
+
+.shot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.pill {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 7px;
+  border-radius: 999px;
+  background: #0b1018;
+  opacity: 0.92;
+}

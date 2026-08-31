@@ -1,0 +1,205 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--surface);
+  border-block: 1px solid var(--rule);
+}
+
+.ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.8rem, 4vw, 2.6rem) 0 clamp(1.8rem, 4vw, 2.6rem) 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+
+.entry:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* the timeline rail + node */
+.entry::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+}
+
+.entry::after {
+  content: "";
+  position: absolute;
+  left: -3.5px;
+  top: calc(clamp(1.8rem, 4vw, 2.6rem) + 0.55rem);
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--paper);
+  border: 1.5px solid var(--rule-strong);
+  transition: background-color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+.entry:hover::after {
+  background: var(--signal);
+  border-color: var(--signal);
+  transform: scale(1.25);
+}
+
+.when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+}
+
+.period {
+  color: var(--ink);
+  letter-spacing: 0.12em;
+}
+
+.place {
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+}
+
+.badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--ok-wash);
+  color: var(--ok);
+  border: 1px solid color-mix(in srgb, var(--ok) 30%, transparent);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+}
+
+.what {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.role {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-3);
+  letter-spacing: -0.03em;
+}
+
+.company {
+  font-size: var(--step-0);
+  color: var(--signal);
+}
+
+.company a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.company a:hover {
+  border-bottom-color: currentColor;
+}
+
+.company svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.summary {
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  max-width: 40ch;
+}
+
+.points {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 62ch;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  line-height: 1.55;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--signal);
+}
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.chip:hover {
+  color: var(--signal);
+  background: var(--signal-wash);
+  border-color: var(--signal);
+}
+
+.education .role {
+  font-size: var(--step-2);
+}
+
+@media (min-width: 900px) {
+  .entry {
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+    gap: 2rem;
+    padding-left: 2.4rem;
+  }
+
+  .when {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    position: sticky;
+    top: 8rem;
+    align-self: start;
+  }
+}

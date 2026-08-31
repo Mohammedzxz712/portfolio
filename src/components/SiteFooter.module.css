@@ -1,0 +1,59 @@
+.footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 2rem 2.4rem;
+  background: var(--paper);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.colophon {
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.links a {
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.links a:hover {
+  color: var(--signal);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.top svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.top:hover svg {
+  transform: translateY(-3px);
+}

@@ -1,0 +1,369 @@
+.page {
+  padding-top: clamp(6.5rem, 14vh, 9rem);
+  padding-bottom: var(--section-y);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-muted);
+  transition: color var(--dur-fast) var(--ease-out), gap var(--dur) var(--ease-out);
+}
+
+.back svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.back:hover {
+  color: var(--signal);
+  gap: 0.75rem;
+}
+
+.header {
+  display: grid;
+  gap: 0.9rem;
+  margin: clamp(1.6rem, 4vw, 2.6rem) 0 clamp(2rem, 5vw, 3.2rem);
+  max-width: 34ch;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-muted);
+}
+
+.dot {
+  color: var(--ink-faint);
+}
+
+.status[data-status="live"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ok);
+}
+
+.status[data-status="live"]::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: var(--step-5);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.alt {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 0.5em;
+  color: var(--ink-muted);
+  vertical-align: middle;
+}
+
+.tagline {
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  line-height: 1.45;
+  max-width: 46ch;
+}
+
+/* ---------- key visual ---------- */
+.cover {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.coverImage {
+  width: 100%;
+  height: auto;
+}
+
+.rail {
+  margin-bottom: clamp(2.4rem, 6vw, 3.6rem);
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.railTrack {
+  display: flex;
+  gap: clamp(0.9rem, 2vw, 1.4rem);
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0 1.2rem;
+  width: max-content;
+}
+
+.railTrack li {
+  scroll-snap-align: center;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.railTrack li:hover {
+  transform: translateY(-6px);
+}
+
+/* ---------- body ---------- */
+.body {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.narrative {
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.h2 {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 0.8rem;
+}
+
+.summary {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  max-width: 62ch;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--signal);
+}
+
+.plates {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.plates figure {
+  margin: 0;
+}
+
+.plateImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-sm);
+  background: var(--surface);
+}
+
+.caption {
+  margin-top: 0.6rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+/* ---------- facts ---------- */
+.facts {
+  display: grid;
+  gap: 1.4rem;
+  align-content: start;
+  padding: clamp(1.25rem, 3vw, 1.7rem);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.factBlock {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.factLabel {
+  color: var(--ink-faint);
+}
+
+.muted {
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  line-height: 1.55;
+}
+
+.tech {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech li {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: var(--step--2);
+  color: var(--ink-muted);
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 0.2rem;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.links a:hover {
+  color: var(--signal);
+  border-color: var(--signal);
+}
+
+.links svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- pager ---------- */
+.pager {
+  display: grid;
+  gap: 1px;
+  margin-top: clamp(3rem, 8vw, 5rem);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.pagerLink {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.4rem 0;
+  transition: color var(--dur-fast) var(--ease-out), padding-inline var(--dur) var(--ease-out);
+}
+
+.pagerLink + .pagerLink {
+  border-top: 1px solid var(--rule);
+}
+
+.pagerLabel {
+  color: var(--ink-faint);
+}
+
+.pagerName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-2);
+  letter-spacing: -0.025em;
+}
+
+.pagerLink:hover {
+  color: var(--signal);
+  padding-left: 0.6rem;
+}
+
+.pagerNext {
+  text-align: left;
+}
+
+@media (min-width: 900px) {
+  /* title and tagline share the width so the header does not leave a hole */
+  .header {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    column-gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+    max-width: none;
+  }
+
+  .meta {
+    grid-column: 1 / -1;
+  }
+
+  .tagline {
+    padding-bottom: 0.6rem;
+  }
+
+  .body {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr);
+  }
+
+  .facts {
+    position: sticky;
+    top: 8rem;
+  }
+
+  .pager {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pagerLink + .pagerLink {
+    border-top: 0;
+    border-left: 1px solid var(--rule);
+    padding-left: 1.6rem;
+  }
+
+  .pagerNext {
+    text-align: right;
+  }
+
+  .pagerNext:hover {
+    padding-left: 1.6rem;
+    padding-right: 0.6rem;
+  }
+}
